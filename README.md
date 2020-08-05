@@ -2,13 +2,11 @@
 
 A new Flutter plugin.
 
-## Getting Started
+Android VPN客户端 https://github.com/gesneriana/trojan_go_plugin/releases
+有问题可以TG联系 https://t.me/kizuna
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+插件目前只有android版本，因为我没有ios和mac设备
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+trojan-go的Android aar包实现来自 https://github.com/gesneriana/trojan-go/tree/go-mobile
+
+trojan-go的服务器端请参考上游项目 https://github.com/p4gefau1t/trojan-go

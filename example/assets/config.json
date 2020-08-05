@@ -1,0 +1,30 @@
+{
+    "run_type": "client",
+    "local_addr": "127.0.0.1",
+    "local_port": 1082,
+    "remote_addr": "jp-node-1.example.com",
+    "remote_port": 2443,
+    "password": [
+        "your-password"
+    ],
+    "websocket": {
+        "enabled": true,
+        "path": "/web",
+        "hostname": "jp-node-1.example.com"
+    },
+    "mux": {
+        "enabled": true
+    },
+    "router": {
+        "enabled": true,
+        "bypass": [
+            "geoip:cn",
+            "geoip:private",
+            "geosite:cn"
+        ]
+    },
+    "ssl": {
+        "fingerprint": "firefox",
+        "sni": "jp-node-1.example.com"
+    }
+}

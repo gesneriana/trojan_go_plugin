@@ -18,6 +18,14 @@ rootProject.allprojects {
     repositories {
         google()
         jcenter()
+        /**子模块含有aar:添加全局引用*/
+        flatDir {
+            // 由于Flutter插件 module中引用了 aar，
+            // 其他工程编译时会报错，所以需要在所有工程的repositories
+            // 下把Library module中的libs目录添加到依赖关系中
+            dirs project(':trojangolib').file('trojangolib')
+            //注意：project后面是aar包的模块名
+        }
     }
 }
 
@@ -40,4 +48,5 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile project(path:':trojangolib')
 }

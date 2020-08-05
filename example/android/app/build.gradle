@@ -52,6 +52,13 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    /**子模块含有aar*/
+    repositories {
+        flatDir {
+            dirs 'libs','../trojangolib' // xxx也是代表aar所在的libs目录的模块名称
+        }
+    }
 }
 
 flutter {

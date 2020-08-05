@@ -5,3 +5,13 @@
 .pub/
 
 build/
+
+.idea
+*.iml
+.gradle
+/.idea.workspace.xml
+/.idea/libraries
+/android/.gradle
+/example/android/.gradle
+/example/android/.idea
+/example/.idea

@@ -1,4 +1,4 @@
-include ':app'
+include ':app', ':trojangolib'
 
 def flutterProjectRoot = rootProject.projectDir.parentFile.toPath()
 
