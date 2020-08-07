@@ -255,22 +255,24 @@ class _MyAppState extends State<MyApp> {
                         PopupMenuItem(
                           child: FlatButton(
                             child: Text(isStartedProxy ? "停止代理" : "启动代理"),
-                            onPressed: () async {
-                              print('使用代理模式上网');
-                              // 启动代理
-                              if (isStartedProxy) {
-                                await Trojangoplugin.stop;
-                                listenInfo = "";
-                              } else {
-                                await Trojangoplugin.start;
-                                listenInfo =
-                                    " ${clientConfig.localAddr}:${clientConfig.localPort} ";
-                              }
-                              Navigator.pop(menuCtx);
-                              setState(() {
-                                isStartedProxy = !isStartedProxy;
-                              });
-                            },
+                            onPressed: isOpenVpnService
+                                ? null
+                                : () async {
+                                    print('使用代理模式上网');
+                                    // 启动代理
+                                    if (isStartedProxy) {
+                                      await Trojangoplugin.stop;
+                                      listenInfo = "";
+                                    } else {
+                                      await Trojangoplugin.start;
+                                      listenInfo =
+                                          " ${clientConfig.localAddr}:${clientConfig.localPort} ";
+                                    }
+                                    Navigator.pop(menuCtx);
+                                    setState(() {
+                                      isStartedProxy = !isStartedProxy;
+                                    });
+                                  },
                           ),
                         ),
                       ],
@@ -425,7 +427,8 @@ class _MyAppState extends State<MyApp> {
                             if (value == null ||
                                 value.trim().length == 0 ||
                                 value.trim() == "/") {
-                              clientConfig?.websocket?.enabled = false; // oppo手机清空输入框, 但是value会是 / , 可能是flutter框架导致的
+                              clientConfig?.websocket?.enabled =
+                                  false; // oppo手机清空输入框, 但是value会是 / , 可能是flutter框架导致的
                             } else {
                               clientConfig?.websocket?.enabled = true;
                               clientConfig?.websocket?.path = value;
