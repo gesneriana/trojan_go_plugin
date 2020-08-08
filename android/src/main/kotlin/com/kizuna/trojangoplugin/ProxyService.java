@@ -68,7 +68,7 @@ public class ProxyService extends VpnService {
             final String stopAction = StopTag;
             final String action = intent.getAction();
             if (stopAction.equals(action)) {
-                Log.d(TAG,"stop the ProxyService");
+                Log.d(TAG, "stop the ProxyService");
                 stop();
             }
         }
@@ -114,7 +114,7 @@ public class ProxyService extends VpnService {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if(this.state==STARTING||this.state==STARTED){
+        if (this.state == STARTING || this.state == STARTED) {
             Log.i(TAG, "already started vpn server and local proxy");
             return START_NOT_STICKY;
         }
@@ -128,6 +128,7 @@ public class ProxyService extends VpnService {
         VpnService.Builder b = new VpnService.Builder();
         try {
             b.addDisallowedApplication(getPackageName());
+            Log.i(TAG, "addDisallowedApplication self app");
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             setState(STOPPED);
@@ -172,6 +173,7 @@ public class ProxyService extends VpnService {
         b.setMtu(VPN_MTU);
         b.addAddress(PRIVATE_VLAN4_CLIENT, 30);
         b.addRoute("0.0.0.0", 0);
+        Log.i(TAG, "setSession and addRoute");
 
         if (enable_ipv6) {
             b.addAddress(PRIVATE_VLAN6_CLIENT, 126);
@@ -187,7 +189,7 @@ public class ProxyService extends VpnService {
             b.addDnsServer("2001:4860:4860::8844");
         }
         pfd = b.establish();
-        Log.i("VPN", "pfd established");
+        Log.i(TAG, "pfd established");
 
         if (pfd == null) {
             stop();
@@ -195,13 +197,13 @@ public class ProxyService extends VpnService {
         }
         int fd = pfd.detachFd();
 
-        Log.i("Igniter", "trojan port is " + trojanPort);
+        Log.i(TAG, "trojan port is " + trojanPort);
 
         long clashSocksPort = 1080; // default value in case fail to get free port
 
         tun2socksPort = trojanPort;
 
-        Log.i("igniter", "tun2socks port is " + tun2socksPort);
+        Log.i(TAG, "tun2socks port is " + tun2socksPort);
 
 
         trojangolib.Tun2socksStartOptions opt = new trojangolib.Tun2socksStartOptions();
