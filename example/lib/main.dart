@@ -429,6 +429,7 @@ class _MyAppState extends State<MyApp> {
                                 value.trim() == "/") {
                               clientConfig?.websocket?.enabled =
                                   false; // oppo手机清空输入框, 但是value会是 / , 可能是flutter框架导致的
+                              clientConfig?.websocket?.path = value;
                             } else {
                               clientConfig?.websocket?.enabled = true;
                               clientConfig?.websocket?.path = value;
