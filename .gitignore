@@ -15,3 +15,5 @@ build/
 /example/android/.gradle
 /example/android/.idea
 /example/.idea
+/android/trojangolib/trojangolib.aar
+/example/android/trojangolib/trojangolib.aar

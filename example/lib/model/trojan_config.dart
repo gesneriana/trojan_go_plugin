@@ -1,4 +1,4 @@
-import 'package:trojangoplugin_example/model/client_config.dart';
+import 'client_config.dart';
 
 class TrojanClientConfig {
   Map<String, ClientConfig> configMaps;

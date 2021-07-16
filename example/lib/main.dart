@@ -7,9 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:trojangoplugin/trojangoplugin.dart';
 import "package:path_provider/path_provider.dart";
-import 'package:trojangoplugin_example/model/client_config.dart';
 import 'config.dart';
 import 'help.dart';
+import 'model/client_config.dart';
 import 'model/trojan_config.dart';
 
 void main() {
