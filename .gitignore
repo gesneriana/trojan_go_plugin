@@ -17,3 +17,5 @@ build/
 /example/.idea
 /android/trojangolib/trojangolib.aar
 /example/android/trojangolib/trojangolib.aar
+/.idea/workspace.xml
+/.idea/libraries
