@@ -19,3 +19,4 @@ build/
 /example/android/trojangolib/trojangolib.aar
 /.idea/workspace.xml
 /.idea/libraries
+/.idea
